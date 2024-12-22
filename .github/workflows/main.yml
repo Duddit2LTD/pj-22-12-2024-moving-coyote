@@ -122,6 +122,8 @@ jobs:
       
     - name: Terraform Apply
       run: terraform apply -auto-approve -var "resource_group_name=${{secrets.AZURE_RESOURCE_GROUP_NAME}}"
+    - name: Terraform Destroy
+      run: terraform destroy -auto-approve -var "resource_group_name=${{secrets.AZURE_RESOURCE_GROUP_NAME}}"
 
   deploy-to-test:
     if: github.event_name != 'pull_request'
@@ -155,6 +157,8 @@ jobs:
       
     - name: Terraform Apply
       run: terraform apply -auto-approve -var "resource_group_name=${{secrets.AZURE_RESOURCE_GROUP_NAME}}"
+    - name: Terraform Destroy
+      run: terraform destroy -auto-approve -var "resource_group_name=${{secrets.AZURE_RESOURCE_GROUP_NAME}}"
 
   deploy-to-prod:
     if: github.event_name != 'pull_request'
@@ -200,3 +204,5 @@ jobs:
       
     - name: Terraform Apply
       run: terraform apply -auto-approve -var "resource_group_name=${{secrets.AZURE_RESOURCE_GROUP_NAME}}"
+    - name: Terraform Destroy
+      run: terraform destroy -auto-approve -var "resource_group_name=${{secrets.AZURE_RESOURCE_GROUP_NAME}}"
